@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 
-import dlcrypt as gui
+import gui
 import find_ext as fext 
 
 
