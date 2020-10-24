@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 
-import sys  # sys нужен для передачи argv в QApplication
+import dlcrypt as gui
 import find_ext as fext 
 
 
