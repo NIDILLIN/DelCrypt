@@ -25,8 +25,6 @@ import os
 class find_ext():
 	def split_filename_and_find_ext_in(self, p):
 		self._path = p
-		# self._path = os.path(__file__)
-		# self._path = path 
 		self._filename, self._file_ext = os.path.splitext(self._path)
 		self._filename = filename
 		self._file_ext = file_ext
