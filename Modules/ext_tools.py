@@ -41,8 +41,10 @@ class ext_analyzer(find_ext):
 			true
 		else: print("Something wrong in **find_ext** module, at *ext_analyzer* method")
 
-# finder = find_ext()
-# path = '/Users/nidillin/DelCrypt/Modules/ext_tools.py'
-# print(finder.split_filename_in(path))
+finder = find_ext()
+path = '/Users/nidillin/DelCrypt/Modules/ext_tools.py'
+filename, file_ext = finder.split_filename_in(path)
+print(file_ext)
+
 
 # main()
