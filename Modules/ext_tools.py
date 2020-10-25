@@ -24,12 +24,12 @@ import os
 
 class find_ext():
 	def split_filename_in(self, p):
-		self._path = p
-		self._filename, self._file_ext = os.path.splitext(self._path)
+		self.path = p
+		self.file_ext = os.path.splitext(self.path)[1]
 
-		return self._filename, self._file_ext
+		return self.file_ext
 
-class ext_analyzer(find_ext):
+class ext_analyzer():
 	def analyze(self, object):
 		self.file_ext = object
 

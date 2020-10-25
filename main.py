@@ -25,17 +25,16 @@ sys.path.append('./Modules')
 
 import ext_tools as fext
 
+
+
 finder = fext.find_ext()
+analyzer = fext.ext_analyzer()
 
 path = "/Modules/ext_tools.py"
-file_path, extension = finder.split_filename_in(path)
-print(finder._path)
-
-print(extension)
-print(file_path)
-
-analyzer = fext.ext_analyzer()
+extension = finder.split_filename_in(path)
 analyzer.analyze(extension)
+
+
 
 
 
