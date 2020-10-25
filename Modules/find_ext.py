@@ -21,30 +21,30 @@ along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
 
-def main ():
-	class find_ext():
-		def split_filename_and_find_ext_in(self, p):
-			self._path = p
-			# self._path = os.path(__file__)
-			# self._path = path 
-			self._filename, self._file_ext = os.path.splitext(self._path)
-			self._filename = filename
-			self._file_ext = file_ext
+# def main ():
+class find_ext():
+	def split_filename_and_find_ext_in(self, p):
+		self._path = p
+		# self._path = os.path(__file__)
+		# self._path = path 
+		self._filename, self._file_ext = os.path.splitext(self._path)
+		self._filename = filename
+		self._file_ext = file_ext
 
-			return filename, file_ext
+		return filename, file_ext
 
-	class ext_analyzer(find_ext):
-		def analyze(self, object):
-			self.file_ext = object
+class ext_analyzer(find_ext):
+	def analyze(self, object):
+		self.file_ext = object
 
-			if self.file_ext == ".b64": #just base64
-				true
-			elif self.file_ext == ".ba6": #base64 + aes256
-				true
-			elif self.file_ext == ".ba8": #base64 + aes128
-				true
-			else: print("Something wrong in **find_ext** module, at *ext_analyzer* method")
+		if self.file_ext == ".b64": #just base64
+			true
+		elif self.file_ext == ".ba6": #base64 + aes256
+			true
+		elif self.file_ext == ".ba8": #base64 + aes128
+			true
+		else: print("Something wrong in **find_ext** module, at *ext_analyzer* method")
 
 
 
-main()
+# main()
