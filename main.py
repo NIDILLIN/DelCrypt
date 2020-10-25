@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 #Copyright 2020 Nico Dillinger
@@ -20,16 +20,21 @@ along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 # import gui
-sys.path.append('/Users/nidillin/DelCrypt/Modules')
+import sys, os
+sys.path.append('./Modules')
+
 import ext_tools as fext
 
 finder = fext.find_ext()
-path = os.path(__file__)
 
-extension = finder.split_filename_and_find_ext_in(path)
+path = "/Modules/ext_tools.py"
+file_path, extension = finder.split_filename_in(path)
+print(finder._path)
 
-analyzer = ext_analyzer()
+print(extension)
+print(file_path)
 
+analyzer = fext.ext_analyzer()
 analyzer.analyze(extension)
 
 

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 #Copyright 2020 Nico Dillinger
@@ -21,13 +21,11 @@ along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
 
-# def main ():
+
 class find_ext():
 	def split_filename_in(self, p):
 		self._path = p
 		self._filename, self._file_ext = os.path.splitext(self._path)
-		# self._filename = self.filename
-		# self._file_ext = self.file_ext
 
 		return self._filename, self._file_ext
 
@@ -36,15 +34,12 @@ class ext_analyzer(find_ext):
 		self.file_ext = object
 
 		if self.file_ext == ".b64": #just base64
-			true
+			print("It`s .b64")
 		elif self.file_ext == ".ba6": #base64 + aes256
-			true
+			print("It`s .ba6")
 		elif self.file_ext == ".ba8": #base64 + aes128
-			true
-		else: print("Something wrong in **find_ext** module, at *ext_analyzer* method")
+			print("It`s .ba8")
+		elif self.file_ext == ".py":
+			print("It`s .py")
+		else: print("Something wrong in *ext_tools** module, at *ext_analyzer* method")
 
-# finder = find_ext()
-# path = '/Users/nidillin/DelCrypt/Modules/ext_tools.py'
-# print(finder.split_filename_in(path))
-
-# main()
