@@ -26,8 +26,6 @@ class find_ext():
 	def split_filename_in(self, p):
 		self._path = p
 		self._filename, self._file_ext = os.path.splitext(self._path)
-		# self._filename = self.filename
-		# self._file_ext = self.file_ext
 
 		return self._filename, self._file_ext
 
