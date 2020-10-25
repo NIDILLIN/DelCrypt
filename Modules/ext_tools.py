@@ -26,10 +26,10 @@ class find_ext():
 	def split_filename_and_find_ext_in(self, p):
 		self._path = p
 		self._filename, self._file_ext = os.path.splitext(self._path)
-		self._filename = filename
-		self._file_ext = file_ext
+		# self._filename = self.filename
+		# self._file_ext = self.file_ext
 
-		return filename, file_ext
+		return self._filename, self._file_ext
 
 class ext_analyzer(find_ext):
 	def analyze(self, object):
@@ -43,6 +43,8 @@ class ext_analyzer(find_ext):
 			true
 		else: print("Something wrong in **find_ext** module, at *ext_analyzer* method")
 
-
+# finder = find_ext()
+# path = '/Users/nidillin/DelCrypt/Modules/ext_tools.py'
+# print(finder.split_filename_and_find_ext_in(path))
 
 # main()

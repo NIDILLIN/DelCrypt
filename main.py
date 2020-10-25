@@ -19,9 +19,9 @@ You should have received a copy of the GNU General Public License
 along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 """
 
-import gui
+# import gui
 sys.path.append('/Users/nidillin/DelCrypt/Modules')
-import find_ext as fext
+import ext_tools as fext
 
 finder = fext.find_ext()
 path = os.path(__file__)
