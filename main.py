@@ -34,7 +34,6 @@ path = "/Modules/ext_tools.py"
 extension = finder.split_filename_in(path)
 analyzer.analyze(extension)
 
-#мы все пидоры блять назуй
 
 
 
