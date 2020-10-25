@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 #Copyright 2020 Nico Dillinger
@@ -20,7 +20,7 @@ along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 import sys
-from PyQt import QApplication, QWidget
+from PyQt5 import QApplication, QWidget
 
 
 class dlcrypt(QWidget):
