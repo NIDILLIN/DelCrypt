@@ -1,8 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-#Copyright 2020 Nico Dillinger
-#LICENSE
+# Copyright 2020 Nico Dillinger
+# LICENSE
 """
 This file is part of DelCrypt.
 DelCrypt is free software: you can redistribute it and/or modify
@@ -18,5 +18,34 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 """
-import openssl as crypt
+import base64
+import os
+from cryptography.fernet import Fernet
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
+
+# salt = os.urandom(16)
+
+# secret_text = b"tododododdododdod"
+# password = b"passcode"
+
+
+# kdf = Scrypt(salt=salt, length=32, n=2**14, r=8, p=1)
+
+# key = base64.urlsafe_b64encode(kdf.derive(password))
+
+# key2 = base64.urlsafe_b64decode(key)
+
+
+# token = Fernet(key).encrypt(b"Secret message!")
+
+
+def encrypt (salt, object, password):
+	pass
+
+def decrypt (object, password):
+	pass
+
+
+
 

@@ -18,25 +18,31 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 """
-
-# import gui
 import sys, os
 sys.path.append('./Modules')
+sys.path.append('./UI')
 
+import gui, design
 import ext_tools as fext
+import crypto as cry
 
 
 
+
+
+"""
 finder = fext.find_ext()
 analyzer = fext.ext_analyzer()
 
 path = "/Modules/ext_tools.py"
 extension = finder.split_filename_in(path)
-analyzer.analyze(extension)
+# analyzer.analyze(extension)
 
+this = os.urandom(32) # абстрактный файл для шифровки
 
-
-
+cry.encrypt(this) # encrypt this and print output
+cry.decrypt(this) # decrypt this and print output
+"""
 
 
 
