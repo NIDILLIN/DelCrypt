@@ -24,36 +24,24 @@ from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 
-# salt = os.urandom(16)
 
-# secret_text = b"tododododdododdod"
-# password = b"passcode"
+salt = b"abd05bwet035guw="
 
-
-# kdf = Scrypt(salt=salt, length=32, n=2**14, r=8, p=1)
-
-# key = base64.urlsafe_b64encode(kdf.derive(password))
-
-# key2 = base64.urlsafe_b64decode(key)
-
-
-# token = Fernet(key).encrypt(b"Secret message!")
-
-
-def encrypt (object, password):
-	salt = b"abd05bwet035guw="
-	this = object
-	this_bytes = this.encode('utf-8')
+def encrypt (item, password):
+	this_bytes = item.encode('utf-8') # encode to bytes
+	passcode = password.encode('utf-8') # encode to bytes
 
 	kdf = Scrypt(salt=salt, length=32, n=2**14, r=8, p=1)
-	key = base64.urlsafe_b64encode(kdf.derive(password.encode('utf-8'))) # must be bytes-like
+	key = base64.urlsafe_b64encode(kdf.derive(passcode))
 
-	token = Fernet(key).encrypt(this_bytes)
-	print(token)
+	enc_token = Fernet(key).encrypt(this_bytes)
+	return enc_token
+	
+def decrypt (enc_item, password):
+	passcode = password.encode('utf-8') # encode to bytes
 
-def decrypt (object, password):
-	pass
-
-
-encrypt("same string", "pass")
-
+	kdf = Scrypt(salt=salt, length=32, n=2**14, r=8, p=1)
+	key = base64.urlsafe_b64encode(kdf.derive(passcode))
+	
+	dec_token = Fernet(key).decrypt(enc_item).decode('utf-8')
+	return dec_token
