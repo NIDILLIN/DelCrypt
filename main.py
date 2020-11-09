@@ -28,43 +28,38 @@ import design # ui
 import ext_tools as fext # ext analyzer
 import crypto as cry # the main part, cryptography
 
-# =========================_GUI_=======================================
+# ===============================_GUI_================================
 class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
 	def __init__(self):
 		# Это здесь нужно для доступа к переменным, методам
 		super().__init__()
 		self.setupUi(self)  # Это нужно для инициализации gui
 
-		self.pushButton.clicked.connect(self.lineEdit.clear)
+		self.pushButton.clicked.connect(self.listWidget)
+# ===============================_GUI_================================
 
 
+# ========================_GUI_Initialization_========================
 def main():
     app = QtWidgets.QApplication(sys.argv)  # Новый экземпляр QApplication
     window = ExampleApp()  # Создаём объект класса ExampleApp
     window.show()  # Показываем окно
     app.exec_()  # и запускаем приложение
 
-# if __name__ == '__main__':  # Если мы запускаем файл напрямую, а не импортируем
-#     main()  # то запускаем функцию main()
-
+# if __name__ == '__main__':
+#     main()  
 main()
-# =========================_GUI_=======================================
+# ========================_GUI_Initialization_========================
 
 
-"""
-finder = fext.find_ext()
-analyzer = fext.ext_analyzer()
 
-path = "/Modules/ext_tools.py"
-extension = finder.split_filename_in(path)
+# finder = fext.find_ext()
+# analyzer = fext.ext_analyzer()
+
+# path = "/Modules/ext_tools.py"
+# extension = finder.split_filename_in(path)
 # analyzer.analyze(extension)
 
-this = os.urandom(32) # абстрактный файл для шифровки
-"""
-this = "Just string"
-password = "passcode"
-cry.encrypt(this, password) # encrypt this and print output
-cry.decrypt(this, password) # decrypt this and print output
 
 
 
