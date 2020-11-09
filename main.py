@@ -24,12 +24,11 @@ sys.path.append('./UI')
 
 from PyQt5 import QtWidgets
 
-import design
-import ext_tools as fext
-import crypto as cry
+import design # ui
+import ext_tools as fext # ext analyzer
+import crypto as cry # the main part, cryptography
 
-
-# ===================================================================
+# =========================_GUI_=======================================
 class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
 	def __init__(self):
 		# Это здесь нужно для доступа к переменным, методам
@@ -49,7 +48,7 @@ def main():
 #     main()  # то запускаем функцию main()
 
 main()
-# ===================================================================
+# =========================_GUI_=======================================
 
 
 """
@@ -61,10 +60,11 @@ extension = finder.split_filename_in(path)
 # analyzer.analyze(extension)
 
 this = os.urandom(32) # абстрактный файл для шифровки
-
-cry.encrypt(this) # encrypt this and print output
-cry.decrypt(this) # decrypt this and print output
 """
+this = "Just string"
+password = "passcode"
+cry.encrypt(this, password) # encrypt this and print output
+cry.decrypt(this, password) # decrypt this and print output
 
 
 

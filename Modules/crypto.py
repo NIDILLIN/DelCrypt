@@ -40,12 +40,20 @@ from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 # token = Fernet(key).encrypt(b"Secret message!")
 
 
-def encrypt (salt, object, password):
-	pass
+def encrypt (object, password):
+	salt = b"abd05bwet035guw="
+	this = object
+	this_bytes = this.encode('utf-8')
+
+	kdf = Scrypt(salt=salt, length=32, n=2**14, r=8, p=1)
+	key = base64.urlsafe_b64encode(kdf.derive(password.encode('utf-8'))) # must be bytes-like
+
+	token = Fernet(key).encrypt(this_bytes)
+	print(token)
 
 def decrypt (object, password):
 	pass
 
 
-
+encrypt("same string", "pass")
 
