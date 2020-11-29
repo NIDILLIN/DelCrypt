@@ -28,20 +28,21 @@ from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 salt = b"abd05bwet035guw="
 
 def encrypt (item, password):
-	this_bytes = item.encode('utf-8') # encode to bytes
-	passcode = password.encode('utf-8') # encode to bytes
+	this_bytes = item.encode('utf-8') # item encoded to bytes
+	passcode = password.encode('utf-8') # password encoded to bytes
 
 	kdf = Scrypt(salt=salt, length=32, n=2**14, r=8, p=1)
 	key = base64.urlsafe_b64encode(kdf.derive(passcode))
 
 	enc_token = Fernet(key).encrypt(this_bytes)
-	return enc_token
+	return enc_token.decode('utf-8') # decoding to str utf-8 to show clean string
 	
-def decrypt (enc_item, password):
+def decrypt (enc_token, password):
 	passcode = password.encode('utf-8') # encode to bytes
-
+	enc_token = enc_token.encode('utf-8') # encoding to bytes previously str object
+	
 	kdf = Scrypt(salt=salt, length=32, n=2**14, r=8, p=1)
 	key = base64.urlsafe_b64encode(kdf.derive(passcode))
 	
-	dec_token = Fernet(key).decrypt(enc_item).decode('utf-8')
+	dec_token = Fernet(key).decrypt(enc_token).decode('utf-8')
 	return dec_token

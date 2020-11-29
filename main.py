@@ -25,26 +25,34 @@ sys.path.append('./UI')
 from PyQt5 import QtWidgets
 
 import design # ui
-import ext_tools as fext # ext analyzer
-import crypto as cry # the main part, cryptography
+import ext_tools as fext # extension analyzer
+import crypto as cry # cryptography
 
 # ===============================_GUI_================================
-class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
+class gui(QtWidgets.QMainWindow, design.Ui_MainWindow):
 	def __init__(self):
-		# Это здесь нужно для доступа к переменным, методам
-		super().__init__()
-		self.setupUi(self)  # Это нужно для инициализации gui
+		super().__init__() 
 
-		self.pushButton.clicked.connect(self.listWidget)
+		self.setupUi(self)  # gui init
+		self.pushButton.clicked.connect(self.encryptThis)
+
+
+	def encryptThis (self):
+		item = self.lineEdit.text()
+		passcode = self.lineEdit_2.text()
+
+		encrypted = cry.encrypt(item, passcode)
+
+		self.listWidget.addItem(encrypted)
 # ===============================_GUI_================================
 
 
 # ========================_GUI_Initialization_========================
 def main():
     app = QtWidgets.QApplication(sys.argv)  # Новый экземпляр QApplication
-    window = ExampleApp()  # Создаём объект класса ExampleApp
-    window.show()  # Показываем окно
-    app.exec_()  # и запускаем приложение
+    window = gui()  # Making window object gui`s class
+    window.show()  # Show window
+    app.exec_()  # app run
 
 # if __name__ == '__main__':
 #     main()  
@@ -59,13 +67,3 @@ main()
 # path = "/Modules/ext_tools.py"
 # extension = finder.split_filename_in(path)
 # analyzer.analyze(extension)
-
-
-
-
-
-
-
-
-
-
