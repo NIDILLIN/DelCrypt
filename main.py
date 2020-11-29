@@ -41,22 +41,21 @@ class gui(QtWidgets.QMainWindow, design.Ui_MainWindow):
 		item = self.lineEdit.text()
 		passcode = self.lineEdit_2.text()
 
-		encrypted = cry.encrypt(item, passcode)
+		encryptedText = cry.encrypt(item, passcode)
 
-		self.listWidget.addItem(encrypted)
+		self.listWidget.addItem(encryptedText)
 # ===============================_GUI_================================
 
 
 # ========================_GUI_Initialization_========================
 def main():
-    app = QtWidgets.QApplication(sys.argv)  # Новый экземпляр QApplication
+    app = QtWidgets.QApplication(sys.argv)  # QApplication
     window = gui()  # Making window object gui`s class
     window.show()  # Show window
     app.exec_()  # app run
 
-# if __name__ == '__main__':
-#     main()  
-main()
+if __name__ == '__main__':
+    main()  
 # ========================_GUI_Initialization_========================
 
 
