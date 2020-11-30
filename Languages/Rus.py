@@ -20,9 +20,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 """
-lang_dict = {
+dic = {
 
-	'example' : 'try',
+	"label_1" : "Текст для зашифровки",
+	"label_2" : "Пароль",
+	"pushButton" : "Зашифровать"
 
 }
 

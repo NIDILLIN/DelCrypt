@@ -19,6 +19,7 @@ You should have received a copy of the GNU General Public License
 along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 """
 import sys, os
+sys.path.append('./Languages')
 sys.path.append('./Modules')
 sys.path.append('./UI')
 

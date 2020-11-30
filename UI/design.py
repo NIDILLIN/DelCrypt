@@ -10,6 +10,12 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+lang = 'russian'
+
+if lang == 'russian':
+    import rus as lang
+else:
+    import eng as lang
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -64,6 +70,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_2.setText(_translate("MainWindow", "Password"))
-        self.label.setText(_translate("MainWindow", "Text to encrypt"))
-        self.pushButton.setText(_translate("MainWindow", "Encrypt"))
+        self.label_2.setText(_translate("MainWindow", lang.dic["label_2"]))
+        self.label.setText(_translate("MainWindow", lang.dic["label_1"]))
+        self.pushButton.setText(_translate("MainWindow", lang.dic["pushButton"]))
