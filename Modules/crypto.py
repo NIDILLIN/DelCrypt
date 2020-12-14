@@ -44,5 +44,5 @@ def decrypt (enc_token, password):
 	kdf = Scrypt(salt=salt, length=32, n=2**14, r=8, p=1) # thats making password to be lenght about 32 
 	key = base64.urlsafe_b64encode(kdf.derive(passcode)) # making password 32 bytes length, because fernet key must be 32 bytes length
 	
-	dec_token = Fernet(key).decrypt(enc_token) # decrypting from ecnToken
+	dec_token = Fernet(key).decrypt(enc_token) # decrypting from encToken
 	return dec_token.decode('utf-8') # decoding is need for reason to see clean str in viewable list or something
