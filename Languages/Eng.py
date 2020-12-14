@@ -22,9 +22,13 @@ along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
 """
 dic = {
 
-	"label_1" : "Text to encrypt",
-	"label_2" : "Password",
-	"pushButton" : "Ecnrypt"
+	'label_1' : 'Text to encrypt',
+	'label_2' : 'Password',
+	'pushButton_encrypt' : 'Ecnrypt',
+	'pushButton_decrypt' : 'Decrypt',
+	'error-textLineIsEmpty' : 'Text field is empty.',
+	'error-passLineIsEmpty' : 'Please, write down the password.',
+	'error-uncorrectPasscode' : 'Uncorrect password.',
 
 }
 

@@ -5,7 +5,7 @@
 
 #Copyright 2020 Nico Dillinger
 #LICENSE
-"""
+'''
 This file is part of DelCrypt.
 DelCrypt is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,12 +19,16 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with DelCrypt.  If not, see <https://www.gnu.org/licenses/>.
-"""
+'''
 dic = {
 
-	"label_1" : "Текст для зашифровки",
-	"label_2" : "Пароль",
-	"pushButton" : "Зашифровать"
+	'label_1' : 'Текст для зашифровки',
+	'label_2' : 'Пароль',
+	'pushButton_encrypt' : 'Зашифровать',
+	'pushButton_decrypt' : 'Расшифровать',
+	'error-textLineIsEmpty' : 'Поле текста пустое.',
+	'error-passLineIsEmpty' : 'Введите пароль.',
+	'error-uncorrectPasscode' : 'Неправильный пароль.',
 
 }
 
