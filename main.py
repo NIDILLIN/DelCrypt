@@ -25,30 +25,91 @@ sys.path.append('./UI')
 
 from PyQt5 import QtWidgets
 
+lang = 'russian'
+if lang == 'russian':
+    import rus as lang
+else:
+    import eng as lang
+
 import design # ui
-import ext_tools as fext # extension analyzer
+import ext_tools as fext # extension analyzer, spliting exts
 import crypto as cry # cryptography
 
-# ===============================_GUI_================================
-class gui(QtWidgets.QMainWindow, design.Ui_MainWindow):
+# ========================--Crypto-class--=========================
+class crypto():
+	def encrypt(self, item, passcode):
+		item = item
+		passcode = passcode
+
+		encryptedText = cry.encrypt(item, passcode)
+		return encryptedText
+
+	def decrypt(self, item, passcode):
+		item = item
+		passcode = passcode
+
+		decryptedText = cry.decrypt(item, passcode)
+		return decryptedText
+# ========================--Crypto-class--=========================
+
+# ============================--GUI--==============================
+class gui(QtWidgets.QMainWindow, design.Ui_MainWindow, crypto):
 	def __init__(self):
 		super().__init__() 
 
 		self.setupUi(self)  # gui init
+		self.setWindowTitle('DelCrypt')
 		self.pushButton.clicked.connect(self.encryptThis)
+		self.pushButton_2.clicked.connect(self.decryptThis)
+
+	def error (self, message):	# error function for err_msg
+		self.err = QtWidgets.QErrorMessage()
+		self.err.showMessage(message)
 
 
-	def encryptThis (self):
-		item = self.lineEdit.text()
-		passcode = self.lineEdit_2.text()
+	def areTwoLinesEmpty(self, line1, line2):
+		if line1 == '':
+			self.line1_isEmpty = True
+		else:
+			self.line1_isEmpty = False
+		if line2 == '':
+			self.line2_isEmpty = True
+		else:
+			self.line2_isEmpty = False
 
-		encryptedText = cry.encrypt(item, passcode)
-
-		self.listWidget.addItem(encryptedText)
-# ===============================_GUI_================================
+		return self.line1_isEmpty, self.line2_isEmpty
 
 
-# ========================_GUI_Initialization_========================
+	def encryptThis(self):
+		self.areTwoLinesEmpty(self.lineEdit.text(), self.lineEdit_2.text()) # if empty -- true
+
+		if self.line1_isEmpty:
+			self.error(lang.dic['error-textLineIsEmpty'])
+		elif self.line2_isEmpty:
+			self.error(lang.dic['error-passLineIsEmpty'])
+		else:
+			encryptedText = self.encrypt(self.lineEdit.text(), self.lineEdit_2.text())
+			self.listWidget.addItem(encryptedText)
+
+	def decryptThis(self):
+		self.areTwoLinesEmpty(self.lineEdit.text(), self.lineEdit_2.text()) # if empty -- true
+		try:
+			if self.line1_isEmpty:
+				self.error(lang.dic['error-textLineIsEmpty'])
+			elif self.line2_isEmpty:
+				self.error(lang.dic['error-passLineIsEmpty'])
+			else:
+				decryptedText = self.decrypt(self.lineEdit.text(), self.lineEdit_2.text())
+				self.listWidget.addItem(decryptedText)
+
+		except:
+			self.error(lang.dic['error-uncorrectPasscode'])
+		
+		
+# ============================--GUI--==============================
+
+
+# ====================--GUI_Initialization--=======================
 def main():
     app = QtWidgets.QApplication(sys.argv)  # QApplication
     window = gui()  # Making window object gui`s class
@@ -57,7 +118,7 @@ def main():
 
 if __name__ == '__main__':
     main()  
-# ========================_GUI_Initialization_========================
+# ====================--GUI_Initialization--=======================
 
 
 
